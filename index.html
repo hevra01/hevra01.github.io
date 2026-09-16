@@ -1,0 +1,385 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Personal academic homepage of Hevra Petekkaya, PhD student in the Visual Intelligence & Perception Lab." />
+  <title>Hevra Petekkaya</title>
+  <style>
+    :root {
+      --bg: #fbfcfc;
+      --surface: #ffffff;
+      --text: #172128;
+      --muted: #617078;
+      --line: #dfe7e9;
+      --accent: #0a7777;
+      --accent-soft: #e9f5f4;
+      --max-width: 920px;
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 17px;
+      line-height: 1.7;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration-thickness: 1px;
+      text-underline-offset: 3px;
+    }
+
+    a:hover { text-decoration-thickness: 2px; }
+
+    .wrap {
+      width: min(calc(100% - 40px), var(--max-width));
+      margin: 0 auto;
+    }
+
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      border-bottom: 1px solid rgba(223, 231, 233, 0.9);
+      background: rgba(251, 252, 252, 0.92);
+      backdrop-filter: blur(12px);
+    }
+
+    .nav-inner {
+      min-height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .name-link {
+      color: var(--text);
+      font-weight: 700;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      gap: 18px;
+      font-size: 0.9rem;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      text-decoration: none;
+    }
+
+    .nav-links a:hover { color: var(--accent); }
+
+    header {
+      padding: 86px 0 68px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 42px;
+      align-items: center;
+    }
+
+    h1, h2, h3, p { margin-top: 0; }
+
+    h1 {
+      margin-bottom: 8px;
+      font-size: clamp(2.5rem, 7vw, 4.6rem);
+      line-height: 1.02;
+      letter-spacing: -0.045em;
+    }
+
+    .subtitle {
+      margin-bottom: 24px;
+      color: var(--muted);
+      font-size: 1.12rem;
+    }
+
+    .quick-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .quick-links a {
+      display: inline-flex;
+      align-items: center;
+      min-height: 40px;
+      padding: 7px 14px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: var(--surface);
+      color: var(--text);
+      font-size: 0.92rem;
+      text-decoration: none;
+    }
+
+    .quick-links a:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    .monogram {
+      width: 138px;
+      height: 138px;
+      display: grid;
+      place-items: center;
+      border: 1px solid #cfe1e1;
+      border-radius: 50%;
+      background: var(--accent-soft);
+      color: var(--accent);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 2.4rem;
+      letter-spacing: -0.08em;
+      user-select: none;
+    }
+
+    main section {
+      padding: 62px 0;
+      border-bottom: 1px solid var(--line);
+      scroll-margin-top: 70px;
+    }
+
+    h2 {
+      margin-bottom: 24px;
+      font-size: 1.65rem;
+      letter-spacing: -0.025em;
+    }
+
+    .prose { max-width: 760px; }
+
+    .prose p:last-child { margin-bottom: 0; }
+
+    .research-note {
+      max-width: 760px;
+      padding: 22px 24px;
+      border-left: 3px solid var(--accent);
+      background: var(--surface);
+      box-shadow: 0 6px 24px rgba(23, 33, 40, 0.035);
+    }
+
+    .research-note strong { display: block; margin-bottom: 4px; }
+
+    .publication {
+      padding: 24px;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: var(--surface);
+    }
+
+    .publication h3 {
+      margin-bottom: 6px;
+      font-size: 1.12rem;
+      line-height: 1.4;
+    }
+
+    .authors, .venue {
+      margin-bottom: 4px;
+      color: var(--muted);
+      font-size: 0.94rem;
+    }
+
+    .paper-link {
+      display: inline-block;
+      margin-top: 10px;
+      font-weight: 600;
+    }
+
+    .timeline {
+      display: grid;
+      gap: 28px;
+    }
+
+    .timeline-item {
+      display: grid;
+      grid-template-columns: 150px 1fr;
+      gap: 24px;
+    }
+
+    .timeline-label {
+      color: var(--muted);
+      font-size: 0.9rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    .timeline-item h3 {
+      margin-bottom: 4px;
+      font-size: 1.03rem;
+    }
+
+    .timeline-item p {
+      margin-bottom: 0;
+      color: var(--muted);
+    }
+
+    address {
+      margin-top: 22px;
+      color: var(--muted);
+      font-style: normal;
+    }
+
+    footer {
+      padding: 34px 0 48px;
+      color: var(--muted);
+      font-size: 0.88rem;
+    }
+
+    @media (max-width: 680px) {
+      body { font-size: 16px; }
+      .wrap { width: min(calc(100% - 28px), var(--max-width)); }
+      .nav-inner { align-items: flex-start; padding: 14px 0; }
+      .nav-links { gap: 10px 14px; }
+      header { padding: 58px 0 50px; }
+      .hero { grid-template-columns: 1fr; }
+      .monogram { width: 96px; height: 96px; font-size: 1.8rem; order: -1; }
+      main section { padding: 48px 0; }
+      .timeline-item { grid-template-columns: 1fr; gap: 5px; }
+    }
+  </style>
+</head>
+<body>
+  <nav aria-label="Primary navigation">
+    <div class="wrap nav-inner">
+      <a class="name-link" href="#top">Hevra Petekkaya</a>
+      <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#research">Research</a>
+        <a href="#publications">Publications</a>
+        <a href="#background">Background</a>
+        <a href="#outside">Outside research</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <header id="top">
+    <div class="wrap hero">
+      <div>
+        <h1>Hevra Petekkaya</h1>
+        <p class="subtitle">PhD student · Visual Intelligence &amp; Perception Lab · Saarbrücken, Germany</p>
+        <div class="quick-links" aria-label="Profile links">
+          <a href="mailto:hpetekka@mpi-inf.mpg.de">Email</a>
+          <a href="https://scholar.google.com/citations?user=VXLagzkAAAAJ&amp;hl=en" target="_blank" rel="noreferrer">Google Scholar</a>
+          <a href="https://github.com/hevra01" target="_blank" rel="noreferrer">GitHub</a>
+        </div>
+      </div>
+      <div class="monogram" aria-hidden="true">HP</div>
+    </div>
+  </header>
+
+  <main>
+    <section id="about">
+      <div class="wrap prose">
+        <h2>About</h2>
+        <p>
+          I am a first-year PhD student in the
+          <a href="https://vip.mpi-inf.mpg.de/" target="_blank" rel="noreferrer">Visual Intelligence &amp; Perception Lab (VIP)</a>,
+          supervised by
+          <a href="https://geometric-rl.mpi-inf.mpg.de/people/lenssen.html" target="_blank" rel="noreferrer">Jan Eric Lenssen</a>.
+        </p>
+        <p>
+          Before starting my PhD, I completed my Master's degree at Saarland University. During my Master's, I worked as a research assistant at the Max Planck Institute for Informatics and the Computer Vision and Machine Perception Lab. I completed my Bachelor's degree in Computer Engineering at Middle East Technical University Northern Cyprus Campus.
+        </p>
+      </div>
+    </section>
+
+    <section id="research">
+      <div class="wrap">
+        <h2>Research</h2>
+        <div class="research-note">
+          <strong>Master's thesis</strong>
+          <span>Relation Between Reconstruction Loss and Available Representation Size in Generative Image Reconstruction</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="publications">
+      <div class="wrap">
+        <h2>Publications</h2>
+        <article class="publication">
+          <h3>SLayR: Scene Layout Generation with Rectified Flow</h3>
+          <p class="authors">Cameron Braunstein, <strong>Hevra Petekkaya</strong>, Jan Eric Lenssen, Mariya Toneva, Eddy Ilg</p>
+          <p class="venue">arXiv, 2024</p>
+          <a class="paper-link" href="https://arxiv.org/abs/2412.05003" target="_blank" rel="noreferrer">Paper ↗</a>
+        </article>
+      </div>
+    </section>
+
+    <section id="background">
+      <div class="wrap">
+        <h2>Academic background</h2>
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="timeline-label">PhD</div>
+            <div>
+              <h3>Visual Intelligence &amp; Perception Lab</h3>
+              <p>First-year PhD student, supervised by Jan Eric Lenssen.</p>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-label">Master's</div>
+            <div>
+              <h3>Saarland University</h3>
+              <p>Master's degree; research assistant at the Max Planck Institute for Informatics and the Computer Vision and Machine Perception Lab.</p>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-label">Bachelor's</div>
+            <div>
+              <h3>Middle East Technical University Northern Cyprus Campus</h3>
+              <p>Bachelor's degree in Computer Engineering.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="outside">
+      <div class="wrap prose">
+        <h2>Outside research</h2>
+        <p>
+          Outside research, I enjoy learning about and listening to music, dancing, watching films, and things like hiking and swimming — all enthusiastically, none professionally. Philosophy used to appear on this list too; we're currently taking a break. :D
+        </p>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="wrap prose">
+        <h2>Contact</h2>
+        <p>
+          The easiest way to reach me is at
+          <a href="mailto:hpetekka@mpi-inf.mpg.de">hpetekka@mpi-inf.mpg.de</a>.
+        </p>
+        <address>
+          Max Planck Institute for Informatics<br />
+          Saarland Informatics Campus<br />
+          Campus E1 4<br />
+          66123 Saarbrücken, Germany
+        </address>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">© Hevra Petekkaya</div>
+  </footer>
+</body>
+</html>
