@@ -83,7 +83,7 @@
     .nav-links a:hover { color: var(--accent); }
 
     header {
-      padding: 86px 0 68px;
+      padding: 78px 0 62px;
       border-bottom: 1px solid var(--line);
     }
 
@@ -98,9 +98,9 @@
 
     h1 {
       margin-bottom: 8px;
-      font-size: clamp(2.5rem, 7vw, 4.6rem);
-      line-height: 1.02;
-      letter-spacing: -0.045em;
+      font-size: clamp(2.35rem, 5vw, 3.5rem);
+      line-height: 1.06;
+      letter-spacing: -0.04em;
     }
 
     .subtitle {
@@ -133,19 +133,14 @@
       color: var(--accent);
     }
 
-    .monogram {
-      width: 138px;
-      height: 138px;
-      display: grid;
-      place-items: center;
+    .profile-photo {
+      width: 112px;
+      height: 112px;
+      display: block;
+      object-fit: cover;
       border: 1px solid #cfe1e1;
       border-radius: 50%;
       background: var(--accent-soft);
-      color: var(--accent);
-      font-family: Georgia, "Times New Roman", serif;
-      font-size: 2.4rem;
-      letter-spacing: -0.08em;
-      user-select: none;
     }
 
     main section {
@@ -229,7 +224,6 @@
     }
 
     address {
-      margin-top: 22px;
       color: var(--muted);
       font-style: normal;
     }
@@ -245,9 +239,9 @@
       .wrap { width: min(calc(100% - 28px), var(--max-width)); }
       .nav-inner { align-items: flex-start; padding: 14px 0; }
       .nav-links { gap: 10px 14px; }
-      header { padding: 58px 0 50px; }
+      header { padding: 54px 0 48px; }
       .hero { grid-template-columns: 1fr; }
-      .monogram { width: 96px; height: 96px; font-size: 1.8rem; order: -1; }
+      .profile-photo { width: 84px; height: 84px; order: -1; }
       main section { padding: 48px 0; }
       .timeline-item { grid-template-columns: 1fr; gap: 5px; }
     }
@@ -279,7 +273,7 @@
           <a href="https://github.com/hevra01" target="_blank" rel="noreferrer">GitHub</a>
         </div>
       </div>
-      <div class="monogram" aria-hidden="true">HP</div>
+      <img class="profile-photo" src="https://github.com/hevra01.png?size=240" alt="Hevra Petekkaya" />
     </div>
   </header>
 
@@ -364,10 +358,6 @@
     <section id="contact">
       <div class="wrap prose">
         <h2>Contact</h2>
-        <p>
-          The easiest way to reach me is at
-          <a href="mailto:hpetekka@mpi-inf.mpg.de">hpetekka@mpi-inf.mpg.de</a>.
-        </p>
         <address>
           Max Planck Institute for Informatics<br />
           Saarland Informatics Campus<br />
